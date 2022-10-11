@@ -24,3 +24,19 @@
 - Replace the `~/.p10k.zsh` file by the provided `jlo-p10k.zsh` file
 
 - Restart `zsh` with `exec zsh`
+
+### Phpstorm issue
+
+As it seems that PHPSTORM has some issue with emoji rendering, we can use, as a workaround, the following snippet in 
+the `~/.zshrc` file: 
+
+```bash
+if [[ $__INTELLIJ_COMMAND_HISTFILE__ ]]; then
+  ZSH_THEME="jlo"
+else
+  ZSH_THEME="powerlevel10k/powerlevel10k"
+fi
+```
+
+@See https://github.com/romkatv/powerlevel10k/issues/1128#issuecomment-734655404 
+@See https://youtrack.jetbrains.com/issue/IDEA-248010
