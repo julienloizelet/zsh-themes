@@ -1601,11 +1601,13 @@
   }
 
    function prompt_firebase() {
-    local fb_project=$(grep \"$(pwd)\" ~/.config/configstore/firebase-tools.json | cut -d" " -f2)
-    if [[ -n $fb_project ]]; then
-    p10k segment -t $fb_project
-    fi
-  }
+     local fb_project=$(cat ~/.config/configstore/firebase-tools.json | jq -r --arg PWD "$(pwd)" '.activeProjects.'\"$PWD\"'')
+     if [[ -n $fb_project ]]; then
+        if [[ "$fb_project" != "null" ]];then
+           p10k segment -t $fb_project
+        fi
+     fi
+   }
 
   typeset -g POWERLEVEL9K_FIREBASE_FOREGROUND='009'
   typeset -g POWERLEVEL9K_FIREBASE_BACKGROUND='232'
