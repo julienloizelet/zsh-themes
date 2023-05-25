@@ -18,6 +18,8 @@
 
 ## p10k version
 
+- Install `jq` (`sudo apt install jq`)
+
 - Install the [powerlevel10k theme](https://github.com/romkatv/powerlevel10k) and follow instruction to enable it as 
   zsh theme.
 
